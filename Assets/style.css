@@ -1,9 +1,38 @@
 :root {
-
+   --primary-color: #407294;
+   --secondary-color: #7030a0;
+}
+* {
+    font-family: Verdana, Tahoma, sans-serif;
 }
 
 .page-content {
     border: solid #000000;
     margin: 100px 200px;
     text-align: center;
+    color: #012e56;
+}
+.page-content p {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+.btn {
+    font-size: 20px;
+    border-radius: 10px;
+}
+.quiz-title h2 {
+    font-size: 25px;
+    color: #012e56;
+}
+.questions {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+.answers {
+    font-size: 20px;
+    color: white;
+    list-style: none;
+    border: white solid 5px;
+    padding: 0 20px;
+    background-color:#7030a0;
 }
