@@ -9,19 +9,16 @@
 </head>
 <body>
     <main class="page-content">
-          <!-- -->
+          <!--creating containers for the intro and question/answer sections -->
+          <div id="intro">
           <h1>Welcome to the JavaScript Coding Quiz!</h1>
             <p>Please answer each question within the time limit. Additionally, 10 seconds will be deducted for all incorrect answers. Good Luck!</p>
-          <div class="wrapper">
-            <div id="questions">Question</div>
-            <div id="answers">
-              <button class="btn">Answer 1</button>
-              <button class="btn">Answer 2</button>
-              <button class="btn">Answer 3</button>
-              <button class="btn">Answer 4</button>
-            </div>
-        </div>
-        <button class="start-btn" id="start-quiz">Let's Start!</button>
+          </div>
+          <div class="hide" id="wrapper">
+            <div id="questions"></div>
+            <div id="answers"></div>
+          </div>
+        <button class="start-btn" id="start-btn">Let's Start!</button>
       </main>
     
     <script src="./Assets/script.js"></script>

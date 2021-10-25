@@ -1,13 +1,16 @@
-:root {
-   --primary-color: #407294;
-   --secondary-color: #012e56;
-}
 * {
     font-family: Verdana, Tahoma, sans-serif;
     color: var(--primary-color);
     box-sizing: border-box;
+    font-size: 20px;
 }
 
+:root {
+   --primary-color: #407294;
+   --secondary-color: #012e56;
+}
+
+/* Creating formats for quiz box */
 .page-content {
     border: solid var(--secondary-color);
     position: absolute;
@@ -16,31 +19,37 @@
     width: 50%;
     text-align: center;
 }
+h1 {
+    font-size: 25px;
+}
 .page-content p {
-    font-size: 20px;
     flex-wrap: wrap;
 }
-.start-btn {
-    font-size: 20px;
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 10px;
-}
+/*formatting questions and answer buttons */
 #questions {
-    font-size: 20px;
     color: var(--secondary-color);
+    font-size: 25px;
+    font-weight: bold;
 }
 .btn {
-    font-size: 20px;
     display:flex;
     justify-content: center;
-    width: 75%;
+    width: 40%;
     margin: 10px auto;
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
     background-color: #e0ffff;
     padding: 5px;
 }
-.wrapper {
+.btn:hover{
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+.start-btn {
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.hide {
     display: none;
 }

@@ -1,31 +1,75 @@
-var buttonE1 = document.querySelector("#start-quiz");
+const startButton = document.getElementById("start-btn");
+const questionContainerElement = document.getElementById("wrapper");
+const questionEl = document.getElementById("questions");
+const answerEl = document.getElementById("answers");
 
+let ranQuestions, currentQuestion
 
 // added event listener to control start button
-buttonE1.addEventListener("click", function() {
-});
+startButton.addEventListener("click", startQuiz)
 
+function startQuiz() {
+    startButton.classList.add("hide");
+    document.getElementById("intro").classList.add("hide");
+    ranQuestions = questions.sort(() => Math.random() - .5);
+    currentQuestion = 0;
+    questionContainerElement.classList.remove("hide");
+    setNextQuestion();
+}
 
-var questions = [
+function setNextQuestion() {
+    showQuestion(ranQuestions[currentQuestion]);
+}
+
+function showQuestion(questions) {
+    questionEl.innerText = questions.question;
+    questions.answers.forEach(answers => {
+        const button = document.createElement("button");
+        button.innerText = answers.text;
+        button.classList.add("btn");
+        if (answers.correct) {
+            button.dataset.correct = answers.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+        answerEl.appendChild(button);
+    });
+}
+function selectAnswer() {
+
+}
+
+const questions = [
     {
         question: "Which is not a common data type in Javascript?",
-        answer: ["String", "Boolean", "Number", "Property"],
-        correctAnswer: "Property"
-    },
+        answers: [
+            {text: "String", correct: false},
+            {text: "Boolean", correct: false},
+            {text: "Number", correct: false},
+            {text: "Property", correct: true}
+        ]},
     {
         question: "What does DOM stand for?",
-        answer: ["Document Output Model", "Document Output Memory", "Document Object Model", "Document Object Memory"],
-        correctAnswer: "Document Object Model"
-    },
+        answers: [
+            {text: "Document Output Model", correct: false},
+            {text: "Document Output Memory", correct: false},
+            {text: "Document Object Model", correct: true},
+            {text: "Document Object Memory", correct: false}
+        ]},
     {
         question: "How do you write 'Happy Birthday' in an alert box?",
-        answer: ["prompt('Happy Birthday');", "alertBox('Happy Birthday');", "confirm('Happy Birthday');", "alert('Happy Birthday');"],
-        correctAnswer: "alert('Happy Birthday');"
-    },    
+        answers: [
+            {text:"prompt('Happy Birthday');", correct: false},
+            {text:"alertBox('Happy Birthday');", correct: false},
+            {text:"msgBox('Happy Birthday');", correct: false},
+            {text:"alert('Happy Birthday');", correct: true}
+       ]},    
     { 
         question: "Arrays in Javascript can be used to store ____.",
-        answer: ["Numbers and strings", "Other arrays", "Booleans", "All of the above"],
-        correctAnswer: "All of the above"
-    },
+        answers: [
+            {text:"Numbers and strings", correct: false},
+            {text: "Other arrays", correct: false}, 
+            {text: "Booleans", correct: false},
+            {text: "All of the above", correct: true}
+        ]},
 
 ];
