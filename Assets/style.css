@@ -27,14 +27,13 @@ h1 {
 }
 /*formatting questions and answer buttons */
 #questions {
-    color: var(--secondary-color);
     font-size: 25px;
     font-weight: bold;
 }
 .btn {
     display:flex;
     justify-content: center;
-    width: 40%;
+    width: 30%;
     margin: 10px auto;
     border: 1px solid var(--secondary-color);
     border-radius: 5px;

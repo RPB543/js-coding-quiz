@@ -2,11 +2,33 @@ const startButton = document.getElementById("start-btn");
 const questionContainerElement = document.getElementById("wrapper");
 const questionEl = document.getElementById("questions");
 const answerEl = document.getElementById("answers");
+const nextButton = document.getElementById("next-btn");
+
+//30 seconds per question:
+var count = 30;
+// Assigns interval
+var interval = setInterval(function(){
+    document.getElementById('count').innerHTML=count;
+    count--;
+    if (count === 0){
+      clearInterval(interval);
+      document.getElementById('count').innerHTML='Done';
+      // or...
+      alert("You're out of time!");
+    }
+  }, 1000);
+
+// Assigns penalty time
+var penalty = 10;
 
 let ranQuestions, currentQuestion
 
 // added event listener to control start button
 startButton.addEventListener("click", startQuiz)
+nextButton.addEventListener("click", () => {
+    currentQuestion++
+    setNextQuestion()
+});
 
 function startQuiz() {
     startButton.classList.add("hide");
@@ -15,9 +37,11 @@ function startQuiz() {
     currentQuestion = 0;
     questionContainerElement.classList.remove("hide");
     setNextQuestion();
-}
+};
+
 
 function setNextQuestion() {
+    resetState()
     showQuestion(ranQuestions[currentQuestion]);
 }
 
@@ -34,9 +58,24 @@ function showQuestion(questions) {
         answerEl.appendChild(button);
     });
 }
-function selectAnswer() {
 
+function resetState() {
+    nextButton.classList.add('hide');
+    while (answerEl.firstChild) {
+        answerEl.removeChild(answerEl.firstChild)
+    }
 }
+function selectAnswer(event) {
+    const selectedButton = event.target;
+    const correct = selectedButton.dataset.correct;
+    if (ranQuestions.length > currentQuestion +1) {
+        nextButton.classList.remove('hide');
+    } else {
+        startButton.innerHTML = "Restart"
+        startButton.classList.remove('hide');
+    }
+    
+ }
 
 const questions = [
     {
