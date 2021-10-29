@@ -10,6 +10,7 @@
 <body>
   <a href="#">View Highscores</a>
     <main class="container">
+      <a class="hide" id="count">Time:<span id="time">0</span></a>
           <!--creating containers for the intro section-->
           <div id="intro">
           <h1>Welcome to the JavaScript Coding Quiz!</h1>
@@ -17,11 +18,7 @@
           </div>
 
           <!--question/answer section-->
-          <div class="hide" id="wrapper">
-            <div id="currentTime"></div>
-            <div id="questions"></div>
-            <div id="answers"></div>
-          </div>
+          <div id="wrapper"></div>
         <button class="start-btn" id="start-btn">Let's Start!</button>
         
         <!-- End of quiz section -->
@@ -29,6 +26,7 @@
           <h2>Quiz Over</h2>
             <p>Your score is: <span id="final-score"></span></p>
             <p>Enter Initials: <input type="text" id="initials" max="5" /></p>
+            <button id="submit">Submit</button>
           </div>
      
       </main>

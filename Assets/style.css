@@ -19,6 +19,10 @@
     width: 50%;
     text-align: center;
 }
+a {
+    display:flex;
+    justify-content: right;
+}
 h1 {
     font-size: 25px;
 }
