@@ -1,25 +1,29 @@
-const startButton = document.getElementById("start-btn");
-const questionContainerElement = document.getElementById("wrapper");
-const questionEl = document.getElementById("questions");
-const answerEl = document.getElementById("answers");
-const nextButton = document.getElementById("next-btn");
+var startBtn = document.getElementById("start-btn");
+var startScreen = document.getElementById("container");
+var timer = document.getElementById("time");
+var currentQuestion = 0;
+var score = 0;
+var timeLeft = 60;
+var timerId;
 
-//30 seconds per question:
-var count = 30;
-// Assigns interval
-var interval = setInterval(function(){
-    document.getElementById('count').innerHTML=count;
-    count--;
-    if (count === 0){
-      clearInterval(interval);
-      document.getElementById('count').innerHTML='Done';
-      // or...
-      alert("You're out of time!");
-    }
-  }, 1000);
 
-// Assigns penalty time
-var penalty = 10;
+startBtn.addEventListener("click", function () {
+    //timer is starts once the start button is clicked/
+    timerId = setInterval(function () {
+      timeLeft--;
+      timer.textContent = timeLeft;
+  
+      if (timeLeft <= 0) {
+        endGame();
+      }
+    }, 1000);
+  
+    timer.textContent = timeLeft;
+    hideElement();
+    showQuestion();
+  });
+
+
 
 let ranQuestions, currentQuestion
 
@@ -46,7 +50,7 @@ function setNextQuestion() {
 }
 
 function showQuestion(questions) {
-    questionEl.innerText = questions.question;
+    questionIndex.innerText = questions.question;
     questions.answers.forEach(answers => {
         const button = document.createElement("button");
         button.innerText = answers.text;
@@ -77,7 +81,7 @@ function selectAnswer(event) {
     
  }
 
-const questions = [
+var questions = [
     {
         question: "Which is not a common data type in Javascript?",
         answers: [
@@ -110,5 +114,4 @@ const questions = [
             {text: "Booleans", correct: false},
             {text: "All of the above", correct: true}
         ]},
-
 ];

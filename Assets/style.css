@@ -11,7 +11,7 @@
 }
 
 /* Creating formats for quiz box */
-.page-content {
+.container {
     border: solid var(--secondary-color);
     position: absolute;
     top: 10%;
@@ -22,7 +22,7 @@
 h1 {
     font-size: 25px;
 }
-.page-content p {
+.container p {
     flex-wrap: wrap;
 }
 /*formatting questions and answer buttons */

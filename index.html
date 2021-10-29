@@ -8,20 +8,29 @@
     <title>JS Coding Quiz</title>
 </head>
 <body>
-  <a href="=HighScores.html">View Highscores</a>
-  <div id="count"></div>
-    <main class="page-content">
-          <!--creating containers for the intro and question/answer sections -->
+  <a href="#">View Highscores</a>
+    <main class="container">
+          <!--creating containers for the intro section-->
           <div id="intro">
           <h1>Welcome to the JavaScript Coding Quiz!</h1>
             <p>Please answer each question within the time limit. Additionally, 10 seconds will be deducted for all incorrect answers. Good Luck!</p>
           </div>
+
+          <!--question/answer section-->
           <div class="hide" id="wrapper">
+            <div id="currentTime"></div>
             <div id="questions"></div>
             <div id="answers"></div>
           </div>
         <button class="start-btn" id="start-btn">Let's Start!</button>
-        <button class="start-btn hide" id="next-btn">Next</button>
+        
+        <!-- End of quiz section -->
+        <div id="end-screen" class="hide">
+          <h2>Quiz Over</h2>
+            <p>Your score is: <span id="final-score"></span></p>
+            <p>Enter Initials: <input type="text" id="initials" max="5" /></p>
+          </div>
+     
       </main>
     
     <script src="./Assets/script.js"></script>
