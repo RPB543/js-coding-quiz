@@ -29,7 +29,7 @@ h1 {
 .container p {
     flex-wrap: wrap;
 }
-/*formatting questions and answer buttons */
+/*formatting questions, answer and start buttons */
 #questions {
     font-size: 25px;
     font-weight: bold;
@@ -53,6 +53,7 @@ h1 {
     padding: 5px;
     margin-bottom: 10px;
 }
+/* creating class to hide divs, etc throughout the quiz */
 .hide {
     display: none;
 }

@@ -26,6 +26,7 @@ var questions = [
     }
 ];
 
+// global variables created //
 var startBtn = document.getElementById("start-btn");
 var startScreen = document.getElementById("container");
 var timer = document.getElementById("time");
@@ -37,7 +38,6 @@ var timerId;
 
 // starts timer for quiz once start button is clicked
 startBtn.addEventListener("click", function () {
-    //timer is starts once the start button is clicked/
     timerId = setInterval(function () {
       timeLeft--;
       timer.textContent = timeLeft;
@@ -52,7 +52,7 @@ startBtn.addEventListener("click", function () {
     showQuestion();
   });
 
-  // hides intro and start button, removes hide from timer
+// hides intro and start button, removes hide from timer
 function hideElements() {
     startBtn.classList.add("hide");
     document.getElementById("intro").classList.add("hide");
@@ -64,7 +64,7 @@ var displayQuestion = document.createElement("div");
     displayQuestion.setAttribute("id", "questions");
     questionContainer.appendChild(displayQuestion);
 
-// score being displayed
+// div is created for answers
 var answers = document.createElement("div");
 answers.setAttribute("id", "answers");
 questionContainer.appendChild(answers);
@@ -72,9 +72,8 @@ questionContainer.appendChild(answers);
 //display questions
 function showQuestion() {
   
-// console.log(questions[currentQuestion].question);
 displayQuestion.textContent = questions[currentQuestion].question;
-  
+// creates loop for question generation and create buttons for answers  
 for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
     var choiceBtn = document.createElement("button");
     choiceBtn.textContent = questions[currentQuestion].choices[i];
@@ -85,17 +84,18 @@ for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
     choiceBtn.onclick = buttonClick;
     }
   
-//selecting an answer
+//selecting an answer and deducting points if not correct
 function buttonClick() {
-    if (this.value === questions[currentQuestion].answer) {
-        score++;
-    } else if (this.value !== questions[currentQuestion].answer) {
-        timeLeft -= 10;
-        timer.textContent = timeLeft;
-    }
+if (this.value === questions[currentQuestion].answer) {
+    score++;
+} else if (this.value !== questions[currentQuestion].answer) {
+    timeLeft -= 10;
+    timer.textContent = timeLeft;
+}
   
 currentQuestion++;
-  
+
+// loop to continue or finish after questions are done
 if (currentQuestion === questions.length) {
 endGame();
 } else {
@@ -105,7 +105,7 @@ answers.textContent = "Total Correct: " + score + "/5";
 }
 }
   
-  // if time runs out or user answers all questions the game is ended
+// if time runs out or user answers all questions the game is ended
 function endGame() {
     displayQuestion.textContent = "";
     var endScreen = document.getElementById("end-screen");
@@ -131,11 +131,12 @@ var newScore = {
   
 //adds data the the newScore variable
 scores.push(newScore);
+
 // sets the highScore key
 localStorage.setItem("highScore", JSON.stringify(scores));
 }
   
 // when the submit button is clicked saveScore function is ran to store data
-var SubmitBtn = document.getElementById("submit");
-SubmitBtn.addEventListener("click", saveScore);
+var submitBtn = document.getElementById("submit");
+submitBtn.addEventListener("click", saveScore);
   
