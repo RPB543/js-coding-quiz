@@ -20,7 +20,7 @@
 
 ## Links 
 
-:stuck_out_tongue:[Deployed Website](https://github.com/RPB543/js-coding-quiz-rpb)\
+:stuck_out_tongue:[Deployed Website](https://rpb543.github.io/js-coding-quiz-rpb/)\
 :relieved:[Repo](https://github.com/RPB543/js-coding-quiz-rpb)\
 :smiley: [Github](https://github.com/RPB543)
 
