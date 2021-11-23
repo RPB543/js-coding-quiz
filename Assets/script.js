@@ -116,17 +116,16 @@ var finalScore = document.getElementById("final-score");
 finalScore.textContent = timeLeft;
   
 }
-  
+ 
+// getting the highScore key
+var scores = JSON.parse(localStorage.getItem("highScore")) || [];
+
 function saveScore() {
 var initialInput = document.getElementById("initials").value.trim();
   
-// getting the highScore key
-var scores = JSON.parse(localStorage.getItem("highScore")) || [];
-  
 var newScore = {
-    score: timeLeft,
-    initals: initialInput,
-    correct: score,
+    totalScore: timeLeft * score,
+    initials: initialInput,
 };
   
 //adds data the the newScore variable
@@ -134,8 +133,10 @@ scores.push(newScore);
 
 // sets the highScore key
 localStorage.setItem("highScore", JSON.stringify(scores));
+window.location.href ="/highscore.html";
 }
-  
+
+
 // when the submit button is clicked saveScore function is ran to store data
 var submitBtn = document.getElementById("submit");
 submitBtn.addEventListener("click", saveScore);
