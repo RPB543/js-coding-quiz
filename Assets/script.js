@@ -133,7 +133,7 @@ scores.push(newScore);
 
 // sets the highScore key
 localStorage.setItem("highScore", JSON.stringify(scores));
-window.location.href ="/highscore.html";
+window.location.href ="highscore.html";
 }
 
 

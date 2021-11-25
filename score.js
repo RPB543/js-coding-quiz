@@ -21,5 +21,6 @@ function sortScores() {
 sortScores();
 
 restartBtn.addEventListener("click", function(){
-    window.location.href = "/"
+    console.log("clicked")
+    window.location.href = "index.html"
 })
