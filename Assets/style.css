@@ -10,6 +10,10 @@
    --secondary-color: #012e56;
 }
 
+h4 {
+    margin: 0;
+}
+
 /* Creating formats for quiz box */
 .container {
     border: solid var(--secondary-color);
