@@ -113,7 +113,8 @@ function endGame() {
     clearInterval(timerId);
   
 var finalScore = document.getElementById("final-score");
-finalScore.textContent = timeLeft;
+totalScore =score*timeLeft
+finalScore.textContent = totalScore
   
 }
  
